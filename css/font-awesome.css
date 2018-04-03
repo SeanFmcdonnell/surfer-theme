@@ -641,7 +641,7 @@
   content: "\f09d";
 }
 .fa-feed:before,
-.fa-rss:before {
+.fa-yelp:before {
   content: "\f09e";
 }
 .fa-hdd-o:before {
@@ -1082,7 +1082,7 @@
 .fa-ellipsis-v:before {
   content: "\f142";
 }
-.fa-rss-square:before {
+.fa-yelp-square:before {
   content: "\f143";
 }
 .fa-play-circle:before {
