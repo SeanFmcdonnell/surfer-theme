@@ -23,8 +23,18 @@
 <link href='//fonts.googleapis.com/css?family=Buda:300' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
 <!-- //web-fonts -->
-</head>
 
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<style type="text/css">
+		body { font-family: Helvetica, sans-serif; }
+		h2, h3 { margin-top:0; }
+		form { margin-top: 15px; }
+		form > input { margin-right: 15px; }
+		#results { float:right; margin:20px; padding:20px; border:1px solid; background:#ccc; }
+	</style>
+</head>
 <body>
 	<!-- banner -->
 	<div class="banner jarallax">
@@ -117,8 +127,54 @@
 				</div>
 				<!-- //top-navigation -->
 				<iframe width="640" height="360" src="http://e.cdn-surfline.com/syndication/embed/v1/player.html?id=5366" frameborder="0" scrolling="no" allowfullscreen></iframe><div style="margin: 10px 0px; color: white;"><a href="http://www.surfline.com/surf-report/south-beach-florida_5366/" target="_blank" title="South Beach Surf Report and HD Surf Cam">South Beach</a> Live HD Surf Cam. To see without ads download <a href="https://getadblock.com/" target="_blank" title="Surfline.com - Global Surf Reports, Surf Forecasts, Live Surf Cams and Coastal Weather">Adblock</a></div>
-				<div class="airbnb-embed-frame" data-id="192162" data-view="experience" style="width:410px;height:300px;margin:auto"><a href="https://www.airbnb.com/experiences/192162"><span>View On Airbnb</span></a><a href="https://www.airbnb.com/experiences/192162" rel="nofollow">Surf South Beach</a><script async="" src="https://www.airbnb.com/embeddable/airbnb_jssdk"></script></div>
-			</div>
+				<!-- <div class="airbnb-embed-frame" data-id="192162" data-view="experience" style="width:410px;height:300px;margin:auto"><a href="https://www.airbnb.com/experiences/192162"><span>View On Airbnb</span></a><a href="https://www.airbnb.com/experiences/192162" rel="nofollow">Surf South Beach</a><script async="" src="https://www.airbnb.com/embeddable/airbnb_jssdk"></script></div>
+			</div> -->
+
+		
+<body>
+	<div id="results">Your captured image will appear here...</div>
+
+	<!-- <h1>WebcamJS Test Page</h1> -->
+	<!-- <h3>Demonstrates simple 320x240 capture &amp; display</h3> -->
+
+	<div id="my_camera"></div>
+
+	<!-- First, include the Webcam.js JavaScript Library -->
+	<script type="text/javascript" src="../webcam.min.js"></script>
+
+	<!-- Configure a few settings and attach camera -->
+	<script language="JavaScript">
+		Webcam.set({
+			width: 320,
+			height: 240,
+			image_format: 'jpeg',
+			jpeg_quality: 90
+		});
+		Webcam.attach( '#my_camera' );
+	</script>
+
+	<!-- A button for taking snaps -->
+	<form>
+		<input type=button value="Take Snapshot" onClick="take_snapshot()">
+	</form>
+
+	<!-- Code to handle taking the snapshot and displaying it locally -->
+	<script language="JavaScript">
+		function take_snapshot() {
+			// take snapshot and get image data
+			Webcam.snap( function(data_uri) {
+				// display results in page
+				document.getElementById('results').innerHTML =
+					'<h2>Here is your image:</h2>' +
+					'<img src="'+data_uri+'"/>';
+			} );
+		}
+	</script>
+
+</body>
+
+
+
 			<!-- //banner-text -->
 			<div class="clearfix"> </div>
 			<!-- <p class="w3-agilephn"><span class="glyphicon glyphicon-earphone"></span> +1 305-397-8103</p> -->
